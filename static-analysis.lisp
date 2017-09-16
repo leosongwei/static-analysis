@@ -129,7 +129,8 @@
   pkgs)
 
 (defun graphviz-escape (string)
-  (adwutils:replace-all string ">" "&gt;"))
+  (cl-ppcre:regex-replace-all ">" string "&gt;"))
+  ;;(adwutils:replace-all string ">" "&gt;"))
 
 (defun ->dot (clusters &optional (stream T)
               &aux (*print-pretty* nil))
